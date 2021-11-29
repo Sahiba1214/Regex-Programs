@@ -1,32 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace CreateRegexProgram
 {
-    public class RegexPatterns
+    public class RegexPattern
     {
-        string pattern = "^[A-Za-z]{2,}$";
-        public void ValidateFirstName(string input)
+        public static string REGEX_FIRST_NAME = "^[A-Z]{1}[a-z]{2,}$";
+        public static string REGEX_LAST_NAME = "^[A-Z]{1}[a-z]{2,}$";
+        public bool ValidateFirstName(string firstName)
         {
-            Regex regex = new Regex(pattern);
-
-            bool res = regex.IsMatch(input);
-            if (res)
-            {
-                Console.WriteLine("Valid Name");
-            }
-            else
-            {
-                Console.WriteLine("Invalid Name");
-            }
+            return Regex.IsMatch(firstName, REGEX_FIRST_NAME);
         }
-        public void Validating()
+        public bool ValidateLastName(string lastName)
         {
-            Regex regex = new Regex(pattern);
-            Console.WriteLine("First Name Validating");
+            return Regex.IsMatch(lastName, REGEX_LAST_NAME);
         }
     }
 }
