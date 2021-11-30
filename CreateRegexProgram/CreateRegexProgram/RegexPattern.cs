@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace CreateRegexProgram
+namespace RegexUserRegistration
 {
-    public class RegexPattern
+    public class UserRegistration
     {
         public static string REGEX_FIRST_NAME = "^[A-Z]{1}[a-z]{2,}$";
         public static string REGEX_LAST_NAME = "^[A-Z]{1}[a-z]{2,}$";
@@ -13,6 +13,7 @@ namespace CreateRegexProgram
         public static string REGEX_MOBILE = "^[1,9]{2} [6-9]{1}[0-9]{9}";
         public static string REGEX_PASSWORD1 = "^[a-z]{8,}";
         public static string REGEX_PASSWORD2 = "^[a-zA-Z]{8,}";
+        public static string REGEX_PASSWORD3 = "^[a-zA-Z0-9]{8,}";
         public bool ValidateFirstName(string firstName)
         {
             return Regex.IsMatch(firstName, REGEX_FIRST_NAME);
@@ -36,6 +37,10 @@ namespace CreateRegexProgram
         public bool ValidatePassword2(string password2)
         {
             return Regex.IsMatch(password2, REGEX_PASSWORD2);
+        }
+        public bool ValidatePassword3(string password3)
+        {
+            return Regex.IsMatch(password3, REGEX_PASSWORD3);
         }
     }
 }
